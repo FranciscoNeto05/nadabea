@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chá de Casa Nova - Amanda & Nadabea</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f7f4ee;
+            --card-bg: #ffffff;
+            --text-main: #332d2b;
+            --text-muted: #736b67;
+            --accent: #8c6d53;
+            --accent-hover: #735741;
+            --border-color: #e6dfd5;
+            --shadow: 0 10px 30px rgba(51, 45, 43, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .header-decor {
+            padding: 30px 20px 15px;
+            text-align: center;
+            background: linear-gradient(to bottom, #fcfbfa, #f7f4ee);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-decor h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .header-decor h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: var(--text-main);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .photo-container {
+            width: 50%;
+            max-width: 200px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #eee;
+            border: 2px solid #e8dcc8;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+          .photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 400px;
+        }
+
+        .content {
+            padding: 30px 24px;
+            text-align: center;
+        }
+
+        .welcome-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .info-card {
+            background: #faf8f5;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .date-badge {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-row i {
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        .location-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+
+        .location-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .notice-box {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 12px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .gift-section {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .gift-item {
+            background: #faf8f5;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .gift-item:hover {
+            border-color: var(--accent);
+            background: #f4efe9;
+        }
+
+        .gift-name {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .gift-price {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .payment-section {
+            margin-bottom: 30px;
+            background: #faf8f5;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .pix-box {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .pix-key {
+            font-family: monospace;
+            font-size: 15px;
+            color: var(--text-main);
+            background: #f7f4ee;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            margin-top: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            margin-top: 12px;
+        }
+
+        .btn-outline:hover {
+            background-color: #faf8f5;
+        }
+
+        .footer {
+            padding: 20px 24px 30px;
+            background: #fcfbfa;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .toast {
+            visibility: hidden;
+            background-color: #332d2b;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 10px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 13px;
+        }
+
+        .toast.show {
+            visibility: hidden;
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+
+        @keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-decor">
+            <h3>Chá de Casa Nova</h3>
+            <h1>Amanda e Nadabea</h1>
+        </div>
+
+        <div class="photo-container">
+            <img src="fotoNadabea.webp" alt="Amanda e Nadabea" id="couple-photo">
+        </div>
+
+        <div class="content">
+            <p class="welcome-text">Um novo capítulo, uma nova fase e o nosso novo lar.</p>
+            <p class="subtitle">Esperamos você para celebrar com a gente!</p>
+
+            <div class="info-card">
+                <div class="date-badge">21/11/26 – sábado – 15H</div>
+                
+                <div class="info-row">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Portal Muralhas de Taranto - Lavras</span>
+                </div>
+
+                <a href="https://maps.google.com/?q=Portal+Muralhas+de+Taranto+Lavras" target="_blank" class="location-btn">
+                    <i class="fa-solid fa-map-location-dot"></i> Abrir no Google Maps
+                </a>
+
+                <div class="notice-box">
+                    Traga sua bebida de preferência. A comida é por nossa conta!
+                </div>
+            </div>
+
+            <div class="gift-section">
+                <div style="text-align: center;">
+                    <h2 class="section-title">Lista de Presentes</h2>
+                </div>
+                <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 5px; margin-bottom: 15px;">Escolha uma opção para contribuir:</p>
+                
+                <div class="gift-grid">
+                    <div class="gift-item" onclick="selectGift('R$ 50,00')">
+                        <span class="gift-name">Cota Simples</span>
+                        <span class="gift-price">R$ 50</span>
+                    </div>
+                    <div class="gift-item" onclick="selectGift('R$ 70,00')">
+                        <span class="gift-name">Utensílio Fofo</span>
+                        <span class="gift-price">R$ 70</span>
+                    </div>
+                    <div class="gift-item" onclick="selectGift('R$ 80,00')">
+                        <span class="gift-name">Mimo p/ Cozinha</span>
+                        <span class="gift-price">R$ 80</span>
+                    </div>
+                    <div class="gift-item" onclick="selectGift('R$ 100,00')">
+                        <span class="gift-name">Acessório Lar</span>
+                        <span class="gift-price">R$ 100</span>
+                    </div>
+                    <div class="gift-item" onclick="selectGift('R$ 150,00')">
+                        <span class="gift-name">Eletro Portátil</span>
+                        <span class="gift-price">R$ 150</span>
+                    </div>
+                    <div class="gift-item" onclick="selectGift('R$ 180,00')">
+                        <span class="gift-name">Decoração</span>
+                        <span class="gift-price">R$ 180</span>
+                    </div>
+                    <div class="gift-item" onclick="selectGift('R$ 200,00')">
+                        <span class="gift-name">Conforto Casa</span>
+                        <span class="gift-price">R$ 200</span>
+                    </div>
+                    <div class="gift-item" onclick="selectGift('R$ 230,00')">
+                        <span class="gift-name">Super Presente</span>
+                        <span class="gift-price">R$ 230</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-section">
+                <h2 class="section-title" style="margin-bottom: 15px;">Formas de Contribuição</h2>
+                
+                <div class="pix-box">
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-main);">Chave Pix (CPF)</p>
+                    <div class="pix-key" id="pixKeyText">70172159660</div>
+                    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Nadabea Lourenço Mesquita<br>Banco do Brasil</p>
+                    <button class="btn btn-primary" onclick="copyPix()">
+                        <i class="fa-solid fa-copy"></i> Copiar Chave Pix
+                    </button>
+                </div>
+
+                <a href="https://link.mercadopago.com.br/presentenovolar" target="_blank" class="btn btn-outline">
+                    <i class="fa-solid fa-credit-card"></i> Pagar com Cartão (Mercado Pago)
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://wa.me/?text=Olá!%20Confirmo%20minha%20presença%20no%20Chá%20de%20Casa%20Nova%20da%20Amanda%20e%20da%20Nadabea!" target="_blank" class="btn btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> Confirmar Presença via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Chave Pix copiada com sucesso!</div>
+
+    <script>
+        function copyPix() {
+            const pixKey = "70172159660";
+            navigator.clipboard.writeText(pixKey).then(() => {
+                showToast("Chave Pix copiada!");
+            }).catch(err => {
+                const textarea = document.createElement("textarea");
+                textarea.value = pixKey;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textarea);
+                showToast("Chave Pix copiada!");
+            });
+        }
+
+        function selectGift(value) {
+            showToast("Você escolheu a cota de " + value + "! Utilize o Pix ou Cartão abaixo.");
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.innerText = message;
+            toast.className = "toast show";
+            setTimeout(function(){ 
+                toast.className = toast.className.replace("show", ""); 
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
